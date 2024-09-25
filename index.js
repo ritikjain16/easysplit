@@ -6,17 +6,18 @@ import "./connection/mongoConn.js";
 // import EmployeeRoute from "./controllers/EmpController.js";
 import GroupRoute from "./controllers/GroupController.js";
 import ExpenseRoute from "./controllers/ExpenseController.js";
-
+import UserRoute from "./controllers/UserController.js";
 const app = express();
 const port = process.env.PORT;
-app.use(cors());
 
 app.use(express.json());
+app.use(cors());
 
 // app.use("/emp", EmployeeRoute);
 
 app.use("/group", GroupRoute);
 app.use("/expense", ExpenseRoute);
+app.use("/user", UserRoute);
 
 app.get("/", (req, res) => {
   res.status(200).send({ msg: "Welcome to Node Js App" });
